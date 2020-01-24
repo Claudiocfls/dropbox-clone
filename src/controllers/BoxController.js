@@ -7,6 +7,16 @@ class BoxController {
     
     return res.json(box);
   }
+
+  async show(req, res) {
+    const boxId = req.params.id;
+    const box = await Box.findById(boxId).populate({
+      path: 'files',
+      options: { sort: { createdAt: -1 } },
+    });
+    
+    res.json(box);
+  }
 }
 
 module.exports = new BoxController();
