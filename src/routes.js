@@ -13,5 +13,8 @@ routes.post(
   FileController.store
 );
 routes.get('/boxes/:id', BoxController.show);
+routes.get('/', (req, res) => {
+  res.send('Application is running');
+});
 
 module.exports = routes;
