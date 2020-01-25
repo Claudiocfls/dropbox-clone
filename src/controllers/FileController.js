@@ -14,6 +14,8 @@ class FileController {
     box.files.push(newFile);
     await box.save();
 
+    req.io.sockets.in(box._id).emit('file', newFile);
+
     res.json(newFile);
   }
 }
