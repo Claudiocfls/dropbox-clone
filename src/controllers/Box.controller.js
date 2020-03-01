@@ -1,4 +1,4 @@
-const Box = require('../models/Box');
+const Box = require('../models/Box.model');
 
 class BoxController {
   async store(req, res) {
